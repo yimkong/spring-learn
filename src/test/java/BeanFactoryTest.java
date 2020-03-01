@@ -11,8 +11,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class BeanFactoryTest {
     @Test
     public void testLoad() {
-        ClassPathXmlApplicationContext listableBeanFactory = new ClassPathXmlApplicationContext("application.xml");
-        MyTestBean beansOfType = (MyTestBean) listableBeanFactory.getBean("myTestBean");
+        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("application.xml");
+//        FileSystemXmlApplicationContext fileSystemXmlApplicationContext = new FileSystemXmlApplicationContext("C:\\project\\spring-learn\\src\\main\\resources\\application.xml");
+        MyTestBean beansOfType = (MyTestBean) classPathXmlApplicationContext.getBean("myTestBean");
         Assert.assertEquals(beansOfType.getStr(), "test");
     }
 }
