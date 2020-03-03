@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * date 2020/3/1
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:SpringTest-context.xml"})
+@ContextConfiguration({"classpath:/SpringTest-context.xml"})
 public class SpringTest {
     @Autowired
     MyTestBean myTestBean;
