@@ -7,10 +7,12 @@ import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Arrays;
+
 public class App {
     public static void main(String[] args) throws Exception {
         // System.out.println("hello");
-        String[] springConfig = {"application.xml","jsrBaseContext.xml"};
+        String[] springConfig = {"jsrBaseContext.xml","application.xml"};
 
         // Creating the application context object
         ApplicationContext context = new ClassPathXmlApplicationContext(springConfig);
@@ -24,6 +26,7 @@ public class App {
         // Executing the JOB
         JobExecution execution = jobLauncher.run(job, new JobParameters());
         System.out.println("Exit Status : " + execution.getStatus());
+
     }
 }
 
