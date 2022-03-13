@@ -16,8 +16,8 @@
     </bean>
 
     <aop:config>
-        <aop:aspect ref="minstrel">
-            <aop:pointcut id="embark" expression="execution(* *.embarkOnQuest(..))"/>
+       <aop:aspect ref="minstrel"> <!-- 切面-->
+            <aop:pointcut id="embark" expression="execution(* *.embarkOnQuest(..))"/><!-- 切点-->
             <aop:before method="singBeforeQuest" pointcut-ref="embark"/>
             <aop:after method="singAfterQuest" pointcut-ref="embark"/>
         </aop:aspect>
