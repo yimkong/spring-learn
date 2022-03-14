@@ -1,3 +1,5 @@
+package chapter1;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
