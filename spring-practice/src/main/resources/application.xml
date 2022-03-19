@@ -2,10 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/aop
-      https://www.springframework.org/schema/aop/spring-aop.xsd">
+      https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="knight" class="chapter1.BraveKnight">
         <constructor-arg ref="quest"/>
@@ -19,12 +21,24 @@
     </bean>
 
     <aop:config>
-       <aop:aspect ref="minstrel"> <!-- 切面-->
+        <aop:aspect ref="minstrel"> <!-- 切面-->
             <aop:pointcut id="embark" expression="execution(* *.embarkOnQuest(..))"/><!-- 切点-->
             <aop:before method="singBeforeQuest" pointcut-ref="embark"/>
             <aop:after method="singAfterQuest" pointcut-ref="embark"/>
         </aop:aspect>
     </aop:config>
+    <!--调用构造函数-->
+    <!--    <bean id="compactDisc" class="chapter2.BlankDisc" c:_0 = "TITLE" c:_1="ARTIST" />-->
+    <bean id="compactDisc" class="chapter2.BlankDisc"
+          p:title="pepper"
+          p:artist="Beatles"
+          p:tracks-ref="tracks"
+    >
+    </bean>
 
-    <bean id="compactDisc" class="chapter2.BlankDisc" c:_0 = "TITLE" c:_1="ARTIST" />
+    <util:list id="tracks">
+        <value>Band</value>
+        <value>Friends</value>
+        <value>Better</value>
+    </util:list>
 </beans>
