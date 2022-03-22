@@ -22,5 +22,6 @@ public class BlankDiscTest {
     public void test() {
         Assert.notNull(blankDisc,"oh");
         blankDisc.play();
+
     }
 }
